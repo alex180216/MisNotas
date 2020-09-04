@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.misnotas.R
+import com.example.misnotas.databinding.FragmentListNotesBinding
+import com.example.misnotas.databinding.FragmentNewNoteBinding
 
 
 class NewNoteFragment : Fragment() {
@@ -19,8 +23,14 @@ class NewNoteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = DataBindingUtil.inflate<FragmentNewNoteBinding>(inflater,
+            R.layout.fragment_new_note, container, false)
 
-        return inflater.inflate(R.layout.fragment_new_note, container, false)
+        binding.btCancelar.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_newNoteFragment_to_listNotesFragment3)
+        }
+
+        return binding.root
     }
 
 }

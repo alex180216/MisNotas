@@ -10,19 +10,21 @@
         android:id="@+id/listNotesFragment"
         android:name="com.example.misnotas.ui.lista.ListNotesFragment"
         android:label="fragment_list_notes"
-        tools:layout="@layout/fragment_list_notes" >
+        tools:layout="@layout/fragment_list_notes">
         <action
             android:id="@+id/action_listNotesFragment_to_newNoteFragment"
-            app:destination="@id/newNoteFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/fragment_fade_exit"
-            app:popUpTo="@id/listNotesFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/newNoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/newNoteFragment"
         android:name="com.example.misnotas.ui.newnote.NewNoteFragment"
         android:label="fragment_new_note"
-        tools:layout="@layout/fragment_new_note" />
+        tools:layout="@layout/fragment_new_note" >
+        <action
+            android:id="@+id/action_newNoteFragment_to_listNotesFragment3"
+            app:destination="@id/listNotesFragment"
+            app:popExitAnim="@android:anim/anticipate_overshoot_interpolator"
+            app:popUpTo="@id/listNotesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
